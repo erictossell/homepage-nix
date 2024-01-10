@@ -6,76 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
 	<script src="https://cdn.tailwindcss.com"></script>
-	<style>
-		.site-card {
-			background-image: url('https://via.placeholder.com/150');
-			background-position: center;
-			background-size: cover;
-		}
-
-		.site-image {
-			width: 50px;
-			height: auto;
-			border-radius: 25%;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gray-900 text-white">
-
 	<div class="min-h-screen flex items-center justify-center">
 		<div class="p-8">
 			<h1 class="text-2xl font-bold mb-6 text-center">Where will you go next?</h1>
-			<div class="grid grid-cols-3 gap-4">
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://login.tailscale.com/admin/machines">
-						<img src="imgs/tailscale.png" alt="Tailscale logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://192.168.2.195:8443">
-						<img src="imgs/actual.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://app.todoist.com/app/today">
-						<img src="imgs/todoist.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://app.excalidraw.com/">
-						<img src="imgs/excalidraw.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://mail.google.com/mail/u/0/#inbox">
-						<img src="imgs/gmail.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://secure.backblaze.com/b2_buckets.htm">
-						<img src="imgs/backblaze.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://github.com">
-						<img src="imgs/github.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://aws.amazon.com/">
-						<img src="imgs/aws.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
-				<div class="site-card rounded-lg shadow-lg p-4 flex items-center justify-center">
-					<a href="https://search.nixos.org/packages">
-						<img src="imgs/nixos.png" alt="Actual logo" class="site-image">
-					</a>
-				</div>
+			<div class="grid grid-cols-3 gap-4" id="image-grid">
+				<!-- Images will be loaded here by script.js -->
 			</div>
 		</div>
 	</div>
-
+	<script src="script.js"></script>
 </body>
 
 </html>
