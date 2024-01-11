@@ -3,17 +3,26 @@ const menuBar = document.getElementById('menu-bar');
 
 function initializeApp(config) {
     populateMenuBar(config);
-    createImageSection(config['personalImageMappings'], imageGrid); // Assuming 'personalImageMappings' is your default view
+    const firstMenuKey = Object.keys(config)[0];
+    if (firstMenuKey) {
+        const firstMenuData = config[firstMenuKey];
+        createImageSection(firstMenuData, imageGrid);
+        const firstDiv = menuBar.children[0]; // Assuming the first child is the first menu item
+        updateSelectedMenu(firstDiv);
+    }
 }
 
+document.addEventListener('DOMContentLoaded', (event) => {
 fetch('config.json')
     .then(response => response.json())
     .then(data => {
-        // data now contains your JSON data
         createMenu(data);
+        if (data && Object.keys(data).length > 0) {
+            initializeApp(data);
+        }
     })
     .catch(error => console.error('Error loading JSON:', error));
-
+});
 function createImageSection(mappings, container) {
     container.innerHTML = ''; // Clear existing content
     for (const [url, { imgSrc, links }] of Object.entries(mappings)) {
@@ -59,34 +68,27 @@ function createMenu(config) {
         }
     }
 }
-
 function populateMenuBar(config) {
-    let firstMenuItem = null;
+    let isFirstItem = true;
 
     for (const menuKey in config) {
         if (config.hasOwnProperty(menuKey)) {
+            
             const menuData = config[menuKey];
             const div = document.createElement('div');
             div.className = 'menu-item rounded-lg p-2 flex items-center justify-center';
-            div.innerText = menuKey.replace('ImageMappings', ''); // Simplify the name for display
-
-            div.addEventListener('click', () => {
+	    if (isFirstItem) {
+  		div.classList.add('selected-item'); // Add the 'selected-item' class to the first item
+                createImageSection(menuData, imageGrid); // Also load the images for the first item
+                isFirstItem = false;
+	    }
+	div.addEventListener('click', () => {
                 createImageSection(menuData, imageGrid);
                 updateSelectedMenu(div);
             });
 
             menuBar.appendChild(div);
-
-            // Keep a reference to the first menu item
-            if (firstMenuItem === null) {
-                firstMenuItem = div;
-            }
         }
-    }
-
-    // If there is at least one menu item, click the first one programmatically
-    if (firstMenuItem !== null) {
-        firstMenuItem.click();
     }
 }
 
@@ -149,10 +151,5 @@ function updateSelectedMenu(selectedMenu) {
         item.classList.remove('selected-menu');
     });
     selectedMenu.classList.add('selected-menu');
-}
-
-function initializeApp(config) {
-    populateMenuBar(config);
-    createImageSection(config['personalImageMappings'], imageGrid); // Assuming 'personalImageMappings' is your default view
 }
 
