@@ -7,7 +7,7 @@ pkgs.dockerTools.buildImage {
   name = "homepage-rs-oci";
   tag = "latest";
 
-  contents = [ homepageRs ];
+  copyToRoot = [ homepageRs ];
 
   config = {
     Cmd = [ "${homepageRs}/bin/homepage-rs" ];
