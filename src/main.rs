@@ -2,7 +2,7 @@ use actix_files as fs;
 use actix_web::{web, App, HttpServer};
 
 fn config(cfg: &mut web::ServiceConfig) {
-    cfg.service(fs::Files::new("/", "./src").index_file("index.html"));
+    cfg.service(fs::Files::new("/", "./static").index_file("index.html"));
 }
 
 #[actix_web::main]
