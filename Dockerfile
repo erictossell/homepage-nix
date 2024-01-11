@@ -60,7 +60,7 @@ USER appuser
 # Copy the executable from the "build" stage.
 COPY --from=build /bin/homepage-rs /bin/
 
-COPY static /static
+# COPY static /static
 
 # Expose the port that the application listens on.
 EXPOSE 8080
