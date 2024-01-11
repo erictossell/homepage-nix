@@ -15,6 +15,8 @@
         packages = {
           default = naersk-lib.buildPackage { src = ./.; };
         };
+	
+
         devShells = {
           default = with pkgs; mkShell {
             buildInputs = [ cargo rustc rustfmt pre-commit rustPackages.clippy nodejs ];
