@@ -12,10 +12,11 @@
         naersk-lib = pkgs.callPackage naersk { };
       in
       {
+        formatter = pkgs.nixpkgs-fmt;
         packages = {
           default = naersk-lib.buildPackage { src = ./.; };
         };
-	
+
 
         devShells = {
           default = with pkgs; mkShell {
@@ -24,5 +25,6 @@
           };
         };
       });
+
 }
 

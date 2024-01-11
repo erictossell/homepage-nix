@@ -1,7 +1,16 @@
 # Runtime stage
 FROM nixos/nix:latest
 WORKDIR /app
-# Copy the built binary from the builder stage
+
+# Enable Nix experimental features
+
+
+# Copy the built binary and other necessary files from the builder stage
 COPY . .
-# Ensure the binary is executable
-CMD ["nix run ."]
+
+# Expose port 8080
+EXPOSE 8080
+
+# Run the application
+RUN nix run /app --extra-experimental-features nix-command --extra-experimental-features flakes
+
