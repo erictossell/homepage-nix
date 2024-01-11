@@ -2,7 +2,6 @@ const imageGrid = document.getElementById('image-grid');
 const menuBar = document.getElementById('menu-bar');
 
 function initializeApp(config) {
-    populateMenuBar(config);
     const firstMenuKey = Object.keys(config)[0];
     if (firstMenuKey) {
         const firstMenuData = config[firstMenuKey];
@@ -23,31 +22,41 @@ fetch('config.json')
     })
     .catch(error => console.error('Error loading JSON:', error));
 });
+
 function createImageSection(mappings, container) {
     container.innerHTML = ''; // Clear existing content
     for (const [url, { imgSrc, links }] of Object.entries(mappings)) {
         const div = document.createElement('div');
         div.className = 'group relative p-4 site-card rounded-lg shadow-lg flex flex-col items-center justify-center';
-
-        const a = document.createElement('a');
-        a.href = url;
+        div.dataset.url = url; // Store the URL in a data attribute
 
         const img = document.createElement('img');
         img.src = imgSrc;
         img.alt = 'Image';
         img.className = 'site-image';
+        img.dataset.links = JSON.stringify(links); // Store links as a data attribute
 
-        a.appendChild(img);
-
-        div.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent event from bubbling up to parent elements
-            showFlyoutMenu(event, links);
-        });
-
-        div.appendChild(a);
+        div.appendChild(img);
         container.appendChild(div);
     }
+
+    // Add a single event listener to the container for delegation
+    container.addEventListener('click', (event) => {
+        const clickedImg = event.target.closest('.site-image');
+        if (clickedImg) {
+            const url = clickedImg.parentElement.dataset.url;
+            const links = JSON.parse(clickedImg.dataset.links);
+
+            if (links && links.length > 0) {
+                event.preventDefault(); // Prevent default navigation
+                showFlyoutMenu(event, links);
+            } else {
+                window.location.href = url; // Navigate to the stored URL
+            }
+        }
+    });
 }
+
 
 function createMenu(config) {
     for (const menuKey in config) {
