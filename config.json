@@ -1,0 +1,86 @@
+{
+	"personalImageMappings": {
+		"https://github.com": {
+			"imgSrc": "imgs/github.png",
+			"links": [
+				{
+					"href": "https: //github.com",
+					"text": "GitHub"
+				}
+			]
+		},
+		"https://app.todoist.com/app/today": {
+			"imgSrc": "imgs/todoist.png",
+			"links": [
+				{
+					"href": "https://app.todoist.com/app/today",
+					"text": "Todoist"
+				}
+			]
+		},
+		"https://app.excalidraw.com/": {
+			"imgSrc": "imgs/excalidraw.png",
+			"links": [
+				{
+					"href": "https://app.excalidraw.com/",
+					"text": "Excalidraw"
+				}
+			]
+		},
+		"https://192.168.2.195:8443": {
+			"imgSrc": "imgs/actual.png",
+			"links": [
+				{
+					"href": "https://192.168.2.195:8443",
+					"text": "Actual"
+				}
+			]
+		},
+		"https://mail.google.com/mail/u/0/#inbox": {
+			"imgSrc": "imgs/gmail.png",
+			"links": [
+				{
+					"href": "https://mail.google.com/mail/u/0/#inbox",
+					"text": "Gmail"
+				}
+			]
+		},
+		"https: //search.nixos.org/packages": {
+			"imgSrc": "imgs/nixos.png",
+			"links": [
+				{
+					"href": "https://search.nixos.org/packages",
+					"text": "NixOS Packages"
+				}
+			]
+		},
+		"https://login.tailscale.com/admin/machines": {
+			"imgSrc": "imgs/tailscale.png",
+			"links": [
+				{
+					"href": "https://login.tailscale.com/admin/machines",
+					"text": "Tailscale Admin"
+				}
+			]
+		},
+		"https://aws.amazon.com/": {
+			"imgSrc": "imgs/aws.png",
+			"links": [
+				{
+					"href": "https://aws.amazon.com/",
+					"text": "AWS"
+				}
+			]
+		},
+		"https://secure.backblaze.com/b2_buckets.htm": {
+			"imgSrc": "imgs/backblaze.png",
+			"links": [
+				{
+					"href": "https://secure.backblaze.com/b2_buckets.htm",
+					"text": "Backblaze B2"
+				}
+			]
+		}
+	},;
+
+{
