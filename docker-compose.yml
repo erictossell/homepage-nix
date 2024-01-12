@@ -1,15 +1,10 @@
 version: '2.23.3'
 
 services:
-  web:
+  homepage-rs:
     build: .
     ports:
       - "8080:8080"
     volumes:
       - ./static:/static
-        #environment:
-        #- APP_NAME=homepage-rs
-        #- RUST_VERSION=1.70.0
-    # Uncomment the line below if you have other environment variables
-    # - ANOTHER_ENV_VAR=value
-
+        

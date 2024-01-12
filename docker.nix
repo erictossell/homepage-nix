@@ -4,10 +4,12 @@ let
 in
 pkgs.dockerTools.buildImage {
 
-  name = "homepage-rs-oci";
+  name = "homepage-rs-nix";
   tag = "latest";
 
-  copyToRoot = [ homepageRs ];
+  copyToRoot = [ 
+    homepageRs
+  ];
 
   config = {
     Cmd = [ "${homepageRs}/bin/homepage-rs" ];
