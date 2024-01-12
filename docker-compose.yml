@@ -2,7 +2,7 @@ version: '2.23.3'
 
 services:
   homepage-rs:
-    build: .
+    image: etossell/homepage-nix:0.1.0
     ports:
       - "8080:8080"
     volumes:
