@@ -54,10 +54,6 @@
 			"imgSrc": "imgs/actual.png",
 			"links": []
 		},
-		"https://mail.google.com/mail/u/0/#inbox": {
-			"imgSrc": "imgs/gmail.png",
-			"links": []
-		},
 		"https: //search.nixos.org/packages": {
 			"imgSrc": "imgs/nixos.png",
 			"links": []
@@ -68,6 +64,10 @@
 		},
 		"https://aws.amazon.com/": {
 			"imgSrc": "imgs/aws.png",
+			"links": []
+		},
+		"https://railway.app/": {
+			"imgSrc": "imgs/railway.png",
 			"links": []
 		},
 		"https://secure.backblaze.com/b2_buckets.htm": {
@@ -75,41 +75,21 @@
 			"links": []
 		}
 	},
-	"Learning": {
-		"https://github.com": {
-			"imgSrc": "imgs/github.png",
+	"Documentation": {
+		"https://docs.eriim.dev": {
+			"imgSrc": "imgs/eriim-docs.png",
 			"links": []
 		},
-		"https://app.todoist.com/app/today": {
-			"imgSrc": "imgs/todoist.png",
+		"https://nix.dev": {
+			"imgSrc": "imgs/nix-discourse.png",
 			"links": []
 		},
-		"https://app.excalidraw.com/": {
-			"imgSrc": "imgs/excalidraw.png",
+		"https://doc.rust-lang.org/book/": {
+			"imgSrc": "imgs/rust.png",
 			"links": []
 		},
-		"https://192.168.2.195:8443": {
-			"imgSrc": "imgs/actual.png",
-			"links": []
-		},
-		"https://mail.google.com/mail/u/0/#inbox": {
-			"imgSrc": "imgs/gmail.png",
-			"links": []
-		},
-		"https: //search.nixos.org/packages": {
-			"imgSrc": "imgs/nixos.png",
-			"links": []
-		},
-		"https://login.tailscale.com/admin/machines": {
-			"imgSrc": "imgs/tailscale.png",
-			"links": []
-		},
-		"https://aws.amazon.com/": {
-			"imgSrc": "imgs/aws.png",
-			"links": []
-		},
-		"https://secure.backblaze.com/b2_buckets.htm": {
-			"imgSrc": "imgs/backblaze.png",
+		"https://crates.io/": {
+			"imgSrc": "imgs/crates.png",
 			"links": []
 		}
 	}
