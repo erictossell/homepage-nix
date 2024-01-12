@@ -2,6 +2,8 @@
 
 There are lots of these, but this one is mine.
 
+Goals, generate all of the static content with `rust` or `nix`. 
+
 ### What is this?
 
 An overly-complicated way to generate a single-page website with an overly simple `rust` backend provided on a `docker` image that is built with `nix`. 
