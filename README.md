@@ -16,6 +16,10 @@ I wanted to reduce the memory usage on all of my personal sites, and I wanted to
 
 The result is a very very small `memory` footprint (~2-4MB) for my mostly idle sites. The `docker` image itself is only 55.3MB. Using a simple `node-js` or `python` equivalent typically runs at ~25-30MB of memory.
 
+The images are built with no base operating system allowing for a very small size. 
+
+> :warning: **Packages in `nixpkgs` are not typically built to reduce size on disk. Take careful consideration using `pkgs.<nixpkgs-name-here>`.**
+
 ### How to use it?
 
 The `docker` image is available on [`docker-hub`](https://hub.docker.com) as [`etossell/homepage-nix`](https://hub.docker.com/r/etossell/homepage-nix). 

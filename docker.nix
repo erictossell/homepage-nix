@@ -3,11 +3,10 @@ let
   homepageRs = pkgs.callPackage ./default.nix { };
 in
 pkgs.dockerTools.buildImage {
-
   name = "homepage-rs-nix";
   tag = "latest";
 
-  copyToRoot = [ 
+  copyToRoot = [
     homepageRs
   ];
 
