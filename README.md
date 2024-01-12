@@ -1,4 +1,4 @@
-## Home-page
+## Homepage
 
 There are lots of these, but this one is mine.
 
