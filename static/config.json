@@ -12,10 +12,6 @@
 			"imgSrc": "imgs/excalidraw.png",
 			"links": []
 		},
-		"https://discourse.nixos.org/": {
-			"imgSrc": "imgs/nix-discourse.png",
-			"links": []
-		},
 		"https://mail.google.com/mail/u/0/#inbox": {
 			"imgSrc": "imgs/gmail.png",
 			"links": []
@@ -24,12 +20,16 @@
 			"imgSrc": "imgs/nixos.png",
 			"links": []
 		},
-		"https://login.tailscale.com/admin/machines": {
-			"imgSrc": "imgs/tailscale.png",
+		"https://chat.openai.com/": {
+			"imgSrc": "imgs/chatgpt.png",
 			"links": []
 		},
 		"https://youtube.com": {
 			"imgSrc": "imgs/youtube.png",
+			"links": []
+		},
+		"https://discord.com/app": {
+			"imgSrc": "imgs/discord.png",
 			"links": []
 		},
 		"https://reddit.com": {
@@ -38,19 +38,19 @@
 		}
 	},
 	"HomeLab": {
-		"https://github.com": {
-			"imgSrc": "imgs/github.png",
+		"http://nixbox:3000": {
+			"imgSrc": "imgs/gitea.png",
 			"links": []
 		},
-		"https://app.todoist.com/app/today": {
-			"imgSrc": "imgs/todoist.png",
+		"https://hub.docker.com/": {
+			"imgSrc": "imgs/docker.png",
 			"links": []
 		},
 		"https://app.excalidraw.com/": {
 			"imgSrc": "imgs/excalidraw.png",
 			"links": []
 		},
-		"https://192.168.2.195:8443": {
+		"https://nixbox:8443": {
 			"imgSrc": "imgs/actual.png",
 			"links": []
 		},
@@ -81,6 +81,10 @@
 			"links": []
 		},
 		"https://nix.dev": {
+			"imgSrc": "imgs/nix-discourse.png",
+			"links": []
+		},
+		"https://discourse.nixos.org/": {
 			"imgSrc": "imgs/nix-discourse.png",
 			"links": []
 		},
