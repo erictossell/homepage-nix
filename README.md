@@ -22,7 +22,7 @@ The front end is a mixture of `tailwind` and very vanilla `javascript` all store
   imports = [
     homepage-nix.nixosModules.${system}.default;
   ];
-  services.homepage = {
+  services.homepage-nix = {
     enable = true;
     port = 8080;
     staticDir = "/path/to/your/static";
