@@ -18,6 +18,10 @@
           default = naersk-lib.buildPackage { src = ./.; };
         };
 
+	nixosModules = {
+	  default = ./service.nix;
+	  };
+	
         devShells = {
           default = with pkgs; mkShell {
             buildInputs = [ cargo rustc rustfmt pre-commit rustPackages.clippy nodejs ];

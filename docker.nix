@@ -10,10 +10,17 @@ pkgs.dockerTools.buildImage {
     homepageRs
   ];
 
+  runAsRoot = ''
+      	mkdir -p /static
+    	'';
+
   config = {
     Cmd = [ "${homepageRs}/bin/homepage-rs" ];
     ExposedPorts = {
       "8080/tcp" = { };
+    };
+    Volumes = {
+      "/static" = { };
     };
   };
 }
