@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.services.homepage-rs;
+  homepage-rs = pkgs.callPackage ./homepage-rs.nix { inherit pkgs; };
 in {
   options.services.homepage-rs = {
     enable = mkEnableOption "homepage-rs service";
@@ -22,7 +23,7 @@ in {
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "${pkgs.homepage-rs}/bin/homepage-rs --port ${toString cfg.port}";
+        ExecStart = "${homepage-rs}/bin/homepage-rs";
         Restart = "always";
       };
     };

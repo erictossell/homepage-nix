@@ -20,7 +20,7 @@
 
 	nixosModules = {
 	  default = ./service.nix;
-	  };
+	};
 	
         devShells = {
           default = with pkgs; mkShell {
