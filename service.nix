@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.services.homepage-rs;
-  homepage-rs = pkgs.callPackage ./default.nix { inherit pkgs; };
+  homepage-nix = pkgs.callPackage ./default.nix { inherit pkgs; };
 in
 {
   options.services.homepage-nix = {
@@ -26,12 +26,12 @@ in
 
   config = mkIf cfg.enable {
     systemd.services.homepage-rs = {
-      description = "homepage-rs Service";
+      description = "homepage-nix Service";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "${homepage-rs}/bin/homepage-rs --port ${toString cfg.port} --static-dir ${cfg.staticDir}";
+        ExecStart = "${homepage-nix}/bin/homepage-nix --port ${toString cfg.port} --static-dir ${cfg.staticDir}";
         Restart = "always";
       };
     };
