@@ -25,7 +25,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    systemd.services.homepage-rs = {
+    systemd.services.homepage-nix = {
       description = "homepage-nix Service";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
