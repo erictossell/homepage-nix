@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.homepage-rs;
+  cfg = config.services.homepage-nix;
   homepage-nix = pkgs.callPackage ./default.nix { inherit pkgs; };
 in
 {
