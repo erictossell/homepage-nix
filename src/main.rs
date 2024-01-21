@@ -11,21 +11,28 @@ fn config(static_dir: String) -> impl Fn(&mut web::ServiceConfig) {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let matches = ClapApp::new("MyApp")
-        .arg(Arg::new("static_dir")
-             .short('s')
-             .long("static-dir")
-             .value_name("DIR")
-             .help("Sets a custom static directory")
-             .takes_value(true))
-        .arg(Arg::new("port")
-             .short('p')
-             .long("port")
-             .value_name("PORT")
-             .help("Sets a custom port")
-             .takes_value(true))
+        .arg(
+            Arg::new("static_dir")
+                .short('s')
+                .long("static-dir")
+                .value_name("DIR")
+                .help("Sets a custom static directory")
+                .takes_value(true),
+        )
+        .arg(
+            Arg::new("port")
+                .short('p')
+                .long("port")
+                .value_name("PORT")
+                .help("Sets a custom port")
+                .takes_value(true),
+        )
         .get_matches();
 
-    let static_dir = matches.value_of("static_dir").unwrap_or("./static").to_string();
+    let static_dir = matches
+        .value_of("static_dir")
+        .unwrap_or("./static")
+        .to_string();
     let port = matches.value_of("port").unwrap_or("8080");
 
     HttpServer::new(move || App::new().configure(config(static_dir.clone())))
@@ -42,7 +49,10 @@ mod tests {
 
     #[actix_rt::test]
     async fn test_index_ok() -> Result<(), Error> {
-        let mut app = test::init_service(App::new().configure(config)).await;
+        // Provide a static directory path for testing
+        let static_dir = "./static".to_string();
+
+        let mut app = test::init_service(App::new().configure(config(static_dir))).await;
 
         let req = test::TestRequest::get().uri("/").to_request();
         let resp = test::call_service(&mut app, req).await;
