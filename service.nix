@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.services.homepage-rs;
-  homepage-rs = pkgs.callPackage ./homepage-rs.nix { inherit pkgs; };
+  homepage-rs = pkgs.callPackage ./default.nix { inherit pkgs; };
 in {
   options.services.homepage-rs = {
     enable = mkEnableOption "homepage-rs service";
