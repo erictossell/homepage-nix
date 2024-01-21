@@ -1,14 +1,35 @@
 use actix_files as fs;
 use actix_web::{web, App, HttpServer};
+use clap::{App as ClapApp, Arg};
 
-fn config(cfg: &mut web::ServiceConfig) {
-    cfg.service(fs::Files::new("/", "./static").index_file("index.html"));
+fn config(static_dir: String) -> impl Fn(&mut web::ServiceConfig) {
+    move |cfg: &mut web::ServiceConfig| {
+        cfg.service(fs::Files::new("/", &static_dir).index_file("index.html"));
+    }
 }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| App::new().configure(config))
-        .bind("0.0.0.0:8080")?
+    let matches = ClapApp::new("MyApp")
+        .arg(Arg::new("static_dir")
+             .short('s')
+             .long("static-dir")
+             .value_name("DIR")
+             .help("Sets a custom static directory")
+             .takes_value(true))
+        .arg(Arg::new("port")
+             .short('p')
+             .long("port")
+             .value_name("PORT")
+             .help("Sets a custom port")
+             .takes_value(true))
+        .get_matches();
+
+    let static_dir = matches.value_of("static_dir").unwrap_or("./static").to_string();
+    let port = matches.value_of("port").unwrap_or("8080");
+
+    HttpServer::new(move || App::new().configure(config(static_dir.clone())))
+        .bind(format!("0.0.0.0:{}", port))?
         .run()
         .await
 }
