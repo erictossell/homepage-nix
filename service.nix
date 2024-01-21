@@ -7,19 +7,19 @@ let
   homepage-rs = pkgs.callPackage ./default.nix { inherit pkgs; };
 in
 {
-  options.services.homepage-rs = {
-    enable = mkEnableOption "homepage-rs service";
+  options.services.homepage-nix = {
+    enable = mkEnableOption "homepage-nix service";
 
     port = mkOption {
       type = types.int;
       default = 8080;
-      description = "Port on which homepage-rs should listen.";
+      description = "Port on which homepage-nix should listen.";
     };
 
     staticDir = mkOption {
       type = types.str;
       default = "/var/lib/homepage-rs/static";
-      description = "Directory for static files served by homepage-rs.";
+      description = "Directory for static files served by homepage-nix.";
     };
 
   };

@@ -3,7 +3,7 @@ let
   homepageRs = pkgs.callPackage ./default.nix { };
 in
 pkgs.dockerTools.buildImage {
-  name = "homepage-rs-nix";
+  name = "homepage-nix";
   tag = "latest";
 
   copyToRoot = [
@@ -15,7 +15,7 @@ pkgs.dockerTools.buildImage {
     	'';
 
   config = {
-    Cmd = [ "${homepageRs}/bin/homepage-rs" ];
+    Cmd = [ "${homepageRs}/bin/homepage-rs" "--port" "5000" "--static-dir" "/static" ];
     ExposedPorts = {
       "8080/tcp" = { };
     };
