@@ -38,7 +38,7 @@ You can build the image from source with `nix-build docker.nix` and then load it
 
 Pull it from docker-hub with `docker pull etossell/homepage-nix:latest`.
 
-Run it with `docker run -p 8080:8080 -v ./<path/to/your/static>:/static etossell/homepage-nix:latest`.
+Run it with `docker run -p 5000:5000 -v ./<path/to/your/static>:/static etossell/homepage-nix:latest`.
 
 ### Why?
 

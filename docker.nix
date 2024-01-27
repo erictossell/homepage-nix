@@ -1,13 +1,13 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  homepageRs = pkgs.callPackage ./default.nix { };
+  homepageNix = pkgs.callPackage ./default.nix { };
 in
 pkgs.dockerTools.buildImage {
   name = "homepage-nix";
   tag = "latest";
 
   copyToRoot = [
-    homepageRs
+    homepageNix
   ];
 
   runAsRoot = ''
@@ -15,7 +15,7 @@ pkgs.dockerTools.buildImage {
     	'';
 
   config = {
-    Cmd = [ "${homepageRs}/bin/homepage-rs" "--port" "5000" "--static-dir" "/static" ];
+    Cmd = [ "${homepageNix}/bin/homepage-nix" "--port" "5000" "--static-dir" "/static" ];
     ExposedPorts = {
       "8080/tcp" = { };
     };
