@@ -48,44 +48,4 @@ The result is a very very small `memory` footprint (~2-4MB) for my mostly idle s
 
 > :warning: **Packages in `nixpkgs` are not typically built to reduce size on disk. Take careful consideration using `pkgs.<nixpkgs-name-here>`.**
 
-`Directory Tree`
 
-[src](src/)/
-    [main.rs](src/main.rs)
-[static](static/)/
-    [index.html](static/index.html)
-
-## Nix Flake Show
-
-```nix
-git+file:///home/eriim/repos/nix/homepage-nix
-├───devShells
-│   ├───aarch64-darwin
-│   │   └───default: development environment 'nix-shell'
-│   ├───aarch64-linux
-│   │   └───default: development environment 'nix-shell'
-│   ├───x86_64-darwin
-│   │   └───default: development environment 'nix-shell'
-│   └───x86_64-linux
-│       └───default: development environment 'nix-shell'
-├───formatter
-│   ├───aarch64-darwin: package 'nixpkgs-fmt-1.3.0'
-│   ├───aarch64-linux: package 'nixpkgs-fmt-1.3.0'
-│   ├───x86_64-darwin: package 'nixpkgs-fmt-1.3.0'
-│   └───x86_64-linux: package 'nixpkgs-fmt-1.3.0'
-├───nixosModules
-│   ├───aarch64-darwin: NixOS module
-│   ├───aarch64-linux: NixOS module
-│   ├───x86_64-darwin: NixOS module
-│   └───x86_64-linux: NixOS module
-└───packages
-    ├───aarch64-darwin
-    │   └───default: package 'homepage-nix-0.2.0'
-    ├───aarch64-linux
-    │   └───default: package 'homepage-nix-0.2.0'
-    ├───x86_64-darwin
-    │   └───default: package 'homepage-nix-0.2.0'
-    └───x86_64-linux
-        └───default: package 'homepage-nix-0.2.0'
-
-```

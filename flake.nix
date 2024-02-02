@@ -15,11 +15,13 @@
         formatter = pkgs.nixpkgs-fmt;
 
         packages = {
-          default = naersk-lib.buildPackage { src = ./.; };
+          homepage-nix = naersk-lib.buildPackage { src = ./.; };
+	  
         };
 
         nixosModules = {
-          default = ./service.nix;
+          homepage-nix = ./service.nix;
+	  default = self.nixosModules.homepage-nix;
         };
 
         devShells = {
