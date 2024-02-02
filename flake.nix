@@ -16,12 +16,12 @@
 
         packages = {
           homepage-nix = naersk-lib.buildPackage { src = ./.; };
-	  
+
         };
 
         nixosModules = {
           homepage-nix = ./service.nix;
-	  default = self.nixosModules.homepage-nix;
+          default = self.nixosModules.homepage-nix;
         };
 
         devShells = {
